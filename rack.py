@@ -15,3 +15,10 @@ if __name__ == "__main__":
 def rack_heat_btu(power_kw: float) -> float:
     """Тепловыделение стойки, BTU/ч (1 кВт = 3412 BTU/ч)."""
     return power_kw * 3412
+
+
+def pue(total_facility_kw: float, it_equipment_kw: float) -> float:
+    """Power Usage Effectiveness — отношение общей мощности ЦОД к мощности ИТ-оборудования."""
+    if it_equipment_kw <= 0:
+        raise ValueError("мощность ИТ-оборудования должна быть > 0")
+    return total_facility_kw / it_equipment_kw
